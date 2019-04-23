@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "gulp": "./node_modules/.bin/gulp",
-    "start:dev": "./node_modules/.bin/http-server -c-1 ./src"
+    "start:dev": "./node_modules/.bin/http-server -c-1 ./src",
+    "start:www": "./node_modules/.bin/http-server -c-1 ./www"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,11 @@
   "devDependencies": {
     "del": "^4.1.0",
     "gulp": "^4.0.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-replace": "^1.6.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-if": "^2.0.2",
+    "gulp-uglify-es": "^1.0.4",
     "http-server": "^0.11.1"
   },
   "dependencies": {
