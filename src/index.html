@@ -19,9 +19,14 @@
     <script src="./assets/libs/angular-sanitize.min.js"></script>
     <script src="./assets/libs/angular-ui-router.min.js"></script>
     <script src="./assets/libs/ocLazyLoad.min.js"></script>
+
+    <!-- App -->
+    <script src="./app.module.js"></script>
+    <script src="./app.constants.js"></script>
+    <script src="./app.config.js"></script>
   </head>
   
-  <body>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere repellendus impedit excepturi voluptates architecto possimus repellat quas, numquam nesciunt illum quidem. Fugiat quod vero, voluptate explicabo ullam cumque vel veniam.</p>
+  <body ng-app="boilerplate">
+    <ui-view></ui-view>
   </body>
 </html>
