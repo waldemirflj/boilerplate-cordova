@@ -4,7 +4,8 @@
   angular
     .module('boilerplate', [
       'ui.router',
-      'oc.lazyLoad'
+      'oc.lazyLoad',
+      'ngSanitize',
     ])
     .run(runApp);
 
