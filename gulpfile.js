@@ -5,6 +5,8 @@ const uglify = require('gulp-uglify-es').default
 const concat = require('gulp-concat')
 const gulpif = require('gulp-if')
 const htmlreplace = require('gulp-html-replace')
+const sass = require('gulp-sass')
+sass.compiler = require('node-sass')
 
 function clean() {
   return del([
@@ -16,6 +18,10 @@ function cleanWww() {
   return del([
     './www',
   ])
+}
+
+function watchFiles() {
+  gulp.watch('./src/assets/scss/**/*.scss', gulp.task('sass'));
 }
 
 gulp.task('libs', () => {
@@ -68,7 +74,17 @@ gulp.task('minify:js:controller', async () => {
     .pipe(gulp.dest('./www/views'))
 })
 
+gulp.task('sass', () => {
+  return gulp.src('./src/assets/scss/*.scss')
+    .pipe(sass({ outputStyle: 'nested'})
+    .on('error', sass.logError))
+    .pipe(gulp.dest('./src/assets/css/'))
+})
+
+exports.watch = gulp.parallel(watchFiles)
+
 exports.build = gulp.series(cleanWww, gulp.series([
+  'sass',
   'libs',
   'www',
   'replace',
