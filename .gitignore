@@ -1,4 +1,5 @@
 www/
+src/assets/css/
+src/assets/libs/
 node_modules/
-src/assets/libs
 package-lock.json
